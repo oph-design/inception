@@ -20,3 +20,7 @@ nginx:
 mariadb:
 	@docker build -t mariadb $(DIR)/mariadb/
 	@docker run --name mariadb -d -p 3306:3306 mariadb
+
+wordpress:
+	@docker build -t wordpress $(DIR)/wordpress/
+	@docker run --name wordpress -d -p 3306:3306 wordpress

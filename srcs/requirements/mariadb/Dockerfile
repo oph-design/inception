@@ -1,6 +1,5 @@
 FROM alpine:3.18
 
-ENV DB_HOST=localhost
 ENV DB_NAME=wordpressdb
 ENV DB_USER=oheinzel
 ENV DB_PASS=password
