@@ -15,9 +15,9 @@ COPY ./tools/db_server.cnf /etc/my.cnf.d/
 
 RUN mkdir -p tmp
 COPY ./tools/setup_db.sh /usr/bin
-COPY ./tools/create_db.sql /tmp/
+# COPY ./tools/create_db.sql /tmp/
 RUN chmod +x /usr/bin/setup_db.sh
-RUN chmod +r /tmp/create_db.sql
+# RUN chmod +r /tmp/create_db.sql
 
 EXPOSE 3306
 

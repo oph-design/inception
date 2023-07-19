@@ -1,18 +1,22 @@
-DIR = /home/oheinzel/Documents/srcs/requirements
+DIR = /home/oheinzel/Documents/inception/srcs/requirements
 
 all:
 	@docker compose -f ./srcs/docker-compose.yml up -d --build
 
 clean:
-	@docker kill $(docker ps -q)
+ifneq ($(shell docker ps -q | wc -l),0)
+	@docker kill $(shell docker ps -q)
+endif
 
 fclean: clean
 	@docker system prune -a
 
+re: fclean all
+
 nginx:
 	@docker build -t nginx $(DIR)/nginx/
-	@docker run -d -p 443:443 nginx
+	@docker run --name ngnix -d -p 443:443 nginx
 
 mariadb:
 	@docker build -t mariadb $(DIR)/mariadb/
-	@docker run -d -p 3306:3306 mariadb
+	@docker run --name mariadb -d -p 3306:3306 mariadb
