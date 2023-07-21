@@ -14,9 +14,9 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp-cli
 
-COPY ./conf/wp-config.php /www/wordpress/
+COPY conf/wp-config.php /www/wordpress/
 RUN chmod +r /www/wordpress/wp-config.php
-COPY ./tools/setup_wp.sh /usr/bin/
+COPY tools/setup_wp.sh /usr/bin/
 RUN chmod +x /usr/bin/setup_wp.sh
 
 EXPOSE 9000

@@ -7,8 +7,8 @@ services:
     container_name: mariadb
     restart: unless-stopped
     env_file: .env
-    volumes:
-      - dbdata:/var/lib/mysql
+    # volumes:
+    #   - dbdata:/var/lib/mysql
     ports:
       - "3306:3306"
     networks:
@@ -22,8 +22,8 @@ services:
     container_name: wordpress
     restart: unless-stopped
     env_file: .env
-    volumes:
-      - wordpress:/www/html
+    # volumes:
+    #   - wordpress:/www/html
     ports:
       - "9000:9000"
     networks:
@@ -34,18 +34,18 @@ services:
     depends_on:
       - wordpress
     image: nginx
-    container_name: webserver
+    container_name: nginx
     restart: unless-stopped
-    volumes:
-      - wordpress:/www/html
+    # volumes:
+    #   - wordpress:/www/html
     ports:
       - "443:443"
     networks:
       - app-network
 
-volumes:
-  wordpress: /home/login/data/wpfiles
-  dbdata: /home/login/data/wpdata
+# volumes:
+#   wordpress: /home/login/data/wpfiles
+#   dbdata: /home/login/data/wpdata
 
 networks:
   app-network:
