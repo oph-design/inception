@@ -4,11 +4,10 @@ all:
 	@docker compose -f ./srcs/docker-compose.yml up -d --build
 
 clean:
-ifneq ($(shell docker ps -q | wc -l),0)
 	@docker kill $(shell docker ps -q)
-endif
 
-fclean: clean
+fclean:
+	@make -i clean
 	@docker system prune -a
 
 re: fclean all
