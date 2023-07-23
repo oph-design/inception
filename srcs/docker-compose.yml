@@ -15,7 +15,7 @@ services:
       - app-network
 
   wordpress:
-    build: requirements/nginx/
+    build: requirements/wordpress/
     depends_on:
       - mariadb
     image: wordpress

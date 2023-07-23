@@ -7,23 +7,23 @@ WHITE 		= \033[0m
 
 all: $(DB_VOLUME) $(WP_VOLUME)
 	@docker compose -f ./srcs/docker-compose.yml up -d --build
-	@echo "$(GREEN)Services up and running!$(WHITE)"
+	@echo "$(GREEN)All Services up and running!$(WHITE)"
 
-$(DB_VOLUME)
+$(DB_VOLUME):
 	@mkdir -p ~/data
 	@mkdir -p ~/data/wpdata
 
-$(WP_VOLUME)
+$(WP_VOLUME):
 	@mkdir -p ~/data
 	@mkdir -p ~/data/wpfiles
 
 clean:
 	@docker compose -f ./srcs/docker-compose.yml down
-	@echo "$(GREEN)Services got shut down!$(WHITE)"
+	@echo "$(GREEN)All Services got shut down!$(WHITE)"
 
 fclean:
 	@make -i clean
-	@docker system prune -a
+	@docker system prune -a -f
 	@echo "$(GREEN)Images and Containers cleaned!$(WHITE)"
 
 re: fclean all
