@@ -1,18 +1,18 @@
 DIR 			= /home/oheinzel/Documents/inception/srcs/requirements
-DB_VOLUME = ⁓/data/wpdata
-WP_VOLUME = ⁓/data/wpfiles
+DB_VOLUME = ~/data/wpdata
+WP_VOLUME = ~/data/wpfiles
 PRUNE_S		= prune_service.sh
 
 all: $(DB_VOLUME) $(WP_VOLUME)
 	@docker compose -f ./srcs/docker-compose.yml up -d --build
 
 $(DB_VOLUME)
-	@mkdir -p ⁓/data
-	@mkdir -p ⁓/data/wpdata
+	@mkdir -p ~/data
+	@mkdir -p ~/data/wpdata
 
 $(WP_VOLUME)
-	@mkdir -p ⁓/data
-	@mkdir -p ⁓/data/wpfiles
+	@mkdir -p ~/data
+	@mkdir -p ~/data/wpfiles
 
 clean:
 	@docker compose -f ./srcs/docker-compose.yml down
