@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/07/23 17:58:24 by oheinzel          #+#    #+#              #
+#    Updated: 2023/07/23 17:58:36 by oheinzel         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 DIR 			= /home/oheinzel/Documents/inception/srcs/requirements
 DB_VOLUME = ~/data/wpdata
 WP_VOLUME = ~/data/wpfiles
