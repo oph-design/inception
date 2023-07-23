@@ -44,8 +44,8 @@ services:
       - app-network
 
 # volumes:
-#   wordpress: /home/login/data/wpfiles
-#   dbdata: /home/login/data/wpdata
+#   wordpress: /data/wpfiles
+#   dbdata: /data/wpdata
 
 networks:
   app-network:
