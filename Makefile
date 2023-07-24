@@ -51,7 +51,7 @@ mariadb: $(PRUNE_S)
 wordpress: $(PRUNE_S)
 	@./prune_service.sh wordpress
 	@docker build -t wordpress $(DIR)/wordpress/
-	@docker run --name wordpress -d -p 3306:3306 wordpress
+	@docker run --name wordpress -d -p 9000:9000 wordpress
 	@echo "$(GREEN)Wordpress up and running!$(WHITE)"
 
 nginx: $(PRUNE_S)

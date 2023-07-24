@@ -10,4 +10,4 @@ echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '$DB_ROOT';"  >> $DB_DIR
 echo "FLUSH PRIVILEGES;"                                        >> $DB_DIR
 mysql -u root < $DB_DIR
 rc-service mariadb stop
-/usr/bin/mysqld --user mysql
+/usr/bin/mysqld -u mysql

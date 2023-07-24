@@ -1,4 +1,4 @@
-version: '1.29.2'
+version: '3.8'
 
 services:
   mariadb:
@@ -10,7 +10,7 @@ services:
     volumes:
       - dbdata:/var/lib/mysql
     ports:
-      - "3306:3306"
+      - "3306"
     networks:
       - app-network
 
@@ -23,9 +23,9 @@ services:
     restart: unless-stopped
     env_file: .env
     volumes:
-      - wordpress:/www/html
+      - wordpress:/var/www/wordpress
     ports:
-      - "9000:9000"
+      - "9000"
     networks:
       - app-network
 
@@ -37,16 +37,26 @@ services:
     container_name: nginx
     restart: unless-stopped
     volumes:
-      - wordpress:/www/html
+      - wordpress:/var/www/wordpress
     ports:
       - "443:443"
     networks:
       - app-network
 
 volumes:
-  wordpress: ~/data/wpfiles
-  dbdata: ~/data/wpdata
+  dbdata:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/oheinzel/data/wpdata
+  wordpress:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/oheinzel/data/wpfiles
 
 networks:
   app-network:
-    driver: bridge
+    # driver: bridge
