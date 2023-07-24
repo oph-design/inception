@@ -38,7 +38,9 @@ fclean:
 	@docker system prune -a -f
 	@echo "$(GREEN)Images and Containers cleaned!$(WHITE)"
 
-re: fclean all
+re: clean all
+
+hardre: fclean all
 
 mariadb: $(PRUNE_S)
 	@./prune_service.sh mariadb
@@ -67,4 +69,4 @@ $(PRUNE_S):
 	@sed -i '/docker/s/$$/1/' prune_service.sh
 	@chmod +x prune_service.sh
 
-.PHONY: all clean fclean re mariadb wordpress ngnix
+.PHONY: all clean fclean re hardre mariadb wordpress ngnix
