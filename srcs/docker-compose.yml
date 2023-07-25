@@ -10,9 +10,9 @@ services:
     volumes:
       - dbdata:/var/lib/mysql
     ports:
-      - "3306"
+      - "6603:3306"
     networks:
-      - app-network
+      - inception
 
   wordpress:
     build: requirements/wordpress/
@@ -25,9 +25,9 @@ services:
     volumes:
       - wordpress:/var/www/wordpress
     ports:
-      - "9000"
+      - "9000:9000"
     networks:
-      - app-network
+      - inception
 
   nginx:
     build: requirements/nginx/
@@ -41,7 +41,7 @@ services:
     ports:
       - "443:443"
     networks:
-      - app-network
+      - inception
 
 volumes:
   dbdata:
@@ -58,5 +58,5 @@ volumes:
       device: /home/oheinzel/data/wpfiles
 
 networks:
-  app-network:
-    # driver: bridge
+  inception:
+    driver: bridge

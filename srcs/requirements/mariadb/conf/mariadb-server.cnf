@@ -1,3 +1,4 @@
+
 [client]
 port = 3306
 
@@ -17,7 +18,7 @@ wait_timeout = 256
 max_connect_errors = 10
 
 table_open_cache = 2048
-max_allowed_packet = 16M
+max_allowed_packet = 128M
 binlog_cache_size = 512M
 max_heap_table_size = 512M
 
@@ -36,10 +37,10 @@ default-storage-engine = InnoDB
 transaction_isolation = REPEATABLE-READ
 tmp_table_size = 512M
 
-log-bin=mysql-bin
-binlog_format=mixed
-slow_query_log
-long_query_time = 2
+# log-bin=mysql-bin
+# binlog_format=mixed
+# slow_query_log
+# long_query_time = 2
 
 server-id = 1
 
@@ -56,15 +57,18 @@ innodb_log_file_size = 512M
 innodb_max_dirty_pages_pct = 90
 innodb_lock_wait_timeout = 256
 
-[mysqldump]
-quick
-max_allowed_packet = 50M
+#[mariadb]
+#unix_socket=OFF
 
-[mysql]
-no-auto-rehash
-
-[mysqlhotcopy]
-interactive-timeout
-
-[mysqld_safe]
-open-files-limit = 8192
+#[mysqldump]
+#quick
+#max_allowed_packet = 50M
+#
+#[mysql]
+#no-auto-rehash
+#
+#[mysqlhotcopy]
+#interactive-timeout
+#
+#[mysqld_safe]
+#open-files-limit = 8192

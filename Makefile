@@ -36,6 +36,7 @@ clean:
 fclean:
 	@make -i clean
 	@docker system prune -a -f
+	@rm -f prune_service.sh
 	@echo "$(GREEN)Images and Containers cleaned!$(WHITE)"
 
 re: clean all
@@ -45,7 +46,7 @@ hardre: fclean all
 mariadb: $(PRUNE_S)
 	@./prune_service.sh mariadb
 	@docker build -t mariadb $(DIR)/mariadb/
-	@docker run --name mariadb -d -p 3306:3306 mariadb
+	@docker run --name mariadb -d -p 6603:3306 mariadb
 	@echo "$(GREEN)MariaDB up and running!$(WHITE)"
 
 wordpress: $(PRUNE_S)

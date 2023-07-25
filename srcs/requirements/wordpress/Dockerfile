@@ -5,10 +5,6 @@ RUN apk add php81 php81-cli php81-fpm php81-mysqli php81-phar php81-openssl
 RUN apk add wget mariadb-client
 
 WORKDIR /var/www/wordpress
-# RUN wget http://wordpress.org/latest.tar.gz
-# RUN tar -xzvf latest.tar.gz
-# RUN rm latest.tar.gz
-
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp-cli
