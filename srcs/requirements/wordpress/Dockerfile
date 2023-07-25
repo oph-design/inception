@@ -1,7 +1,7 @@
 FROM alpine:3.18
 
 RUN apk update
-RUN apk add php81 php81-cli php81-fpm php81-mysqli php81-phar php81-openssl
+RUN apk add php81 php81-cli php81-fpm php81-mysqli php81-phar php81-openssl php81-mbstring
 RUN apk add wget mariadb-client
 
 WORKDIR /var/www/wordpress

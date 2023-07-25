@@ -9,8 +9,6 @@ services:
     env_file: .env
     volumes:
       - dbdata:/var/lib/mysql
-    ports:
-      - "6603:3306"
     networks:
       - inception
 
@@ -24,8 +22,6 @@ services:
     env_file: .env
     volumes:
       - wordpress:/var/www/wordpress
-    ports:
-      - "9000:9000"
     networks:
       - inception
 
