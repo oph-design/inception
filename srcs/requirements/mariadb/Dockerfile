@@ -10,6 +10,4 @@ COPY tools/setup_db.sh /usr/bin
 RUN chmod +x /usr/bin/setup_db.sh
 RUN mkdir -p tmp
 
-EXPOSE 3306
-
 ENTRYPOINT ["/usr/bin/setup_db.sh"]

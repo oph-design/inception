@@ -1,8 +1,9 @@
 FROM alpine
 
 RUN apk update
-RUN apk add php81 php81-cli php81-fpm php81-mysqli php81-phar php81-openssl php81-mbstring
-RUN apk add wget mariadb-client
+RUN apk add php81 php81-cli php81-fpm php81-mysqli \
+            php81-phar php81-openssl php81-mbstring \
+            wget mariadb-client
 
 WORKDIR /var/www/wordpress
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -16,7 +17,4 @@ COPY conf/wp-config.php /var/www/wordpress/
 COPY tools/setup_wp.sh /usr/bin/
 RUN chmod +x /usr/bin/setup_wp.sh
 
-EXPOSE 9000
-
 ENTRYPOINT ["/usr/bin/setup_wp.sh"]
-
