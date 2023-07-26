@@ -11,7 +11,7 @@ RUN mv wp-cli.phar /usr/local/bin/wp-cli
 RUN wp-cli core download
 
 COPY conf/wp-config.php /var/www/wordpress/
-COPY conf/www.conf /etc/php8/php-fpm.d/
+COPY conf/www.conf /etc/php81/php-fpm.d/
 COPY tools/setup_wp.sh /usr/bin/
 RUN chmod +x /usr/bin/setup_wp.sh
 
