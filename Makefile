@@ -35,7 +35,7 @@ clean:
 
 fclean:
 	@make -i clean
-	@docker system prune -a -f
+	@docker system prune -a -f --volumes
 	@rm -f prune_service.sh
 	@echo "$(GREEN)Images and Containers cleaned!$(WHITE)"
 
