@@ -1,11 +1,5 @@
 FROM alpine
 
-ENV DB_HOST=mariadb
-ENV DB_NAME=wordpressdb
-ENV DB_USER=oheinzel
-ENV DB_PASS=password
-ENV DB_ROOT=inception
-
 RUN apk update
 RUN apk add mariadb mariadb-client openrc
 RUN openrc
