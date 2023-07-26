@@ -45,13 +45,13 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: /home/oheinzel/data/wpdata
+      device: /home/oheinzel/data/wp_database
   wordpress:
     driver: local
     driver_opts:
       o: bind
       type: none
-      device: /home/oheinzel/data/wpfiles
+      device: /home/oheinzel/data/wp_files
 
 networks:
   inception:

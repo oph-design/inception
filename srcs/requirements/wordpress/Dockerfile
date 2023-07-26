@@ -10,9 +10,9 @@ RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp-cli
 RUN wp-cli core download
 
-# RUN sed -i 's/listen = 127.0.0.1:9000/listen = 9000/' /etc/php81/php-fpm.d/www.conf
+RUN sed -i 's/listen = 127.0.0.1:9000/listen = 9000/' /etc/php81/php-fpm.d/www.conf
+RUN sed -i 's/;clear_env = no/clear_env = no/' /etc/php81/php-fpm.d/www.conf
 COPY conf/wp-config.php /var/www/wordpress/
-COPY conf/www.conf /etc/php81/php-fpm.d/
 COPY tools/setup_wp.sh /usr/bin/
 RUN chmod +x /usr/bin/setup_wp.sh
 
