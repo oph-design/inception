@@ -29,6 +29,7 @@ $(WP_VOLUME):
 	@mkdir -p ~/data/wp_files
 
 $(ENV):
+	@chmod +x create_env.sh
 	@./create_env.sh
 
 clean:
