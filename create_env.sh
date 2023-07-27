@@ -1,5 +1,4 @@
 #!/bin/bash
-
 declare -a arr=("DB_HOST" "DB_NAME" "DB_USER" \
                 "DB_PASS" "DB_ROOT" "WP_HOST" \
                 "WP_TITLE" "WP_ADMIN_USER" \

@@ -38,6 +38,8 @@ define( 'DB_CHARSET', 'utf8' );
 define( 'DB_COLLATE', '' );
 
 define( 'WP_HOME', getenv('WP_HOST') );
+
+define( 'WP_SITEURL', getenv('WP_HOST') );
 /**#@+
  * Authentication unique keys and salts.
  *
