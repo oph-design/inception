@@ -15,8 +15,4 @@ COPY conf/www.conf /etc/php81/php-fpm.d/
 COPY tools/setup_wp.sh /usr/bin/
 RUN chmod +x /usr/bin/setup_wp.sh
 
-EXPOSE 9000
-
 ENTRYPOINT ["/usr/bin/setup_wp.sh"]
-
-#/etc/php81/php-fpm.d
