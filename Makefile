@@ -6,7 +6,7 @@
 #    By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/23 17:58:24 by oheinzel          #+#    #+#              #
-#    Updated: 2023/07/23 17:58:36 by oheinzel         ###   ########.fr        #
+#    Updated: 2023/07/31 17:16:28 by oheinzel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,10 @@ $(WP_VOLUME):
 	@mkdir -p ~/data/wp_files
 
 $(ENV):
-	@chmod +x create_env.sh
-	@./create_env.sh
+	@make buildtmp
+	@chmod +x tmp_script.sh
+	@./tmp_script.sh
+	@rm -f tmp_script.sh
 
 clean:
 	@docker compose -f ./srcs/docker-compose.yml down
@@ -45,6 +47,23 @@ fclean:
 re: clean all
 
 hardre: fclean all
+
+buildtmp:
+	@> tmp_script.sh echo '#!/bin/bash'
+	@>> tmp_script.sh echo 'declare -a arr=("DB_HOST" "DB_NAME" "DB_USER" \'
+	@>> tmp_script.sh echo '                "DB_PASS" "DB_ROOT" "WP_HOST" \'
+	@>> tmp_script.sh echo '                "WP_TITLE" "WP_ADMIN_USER" \'
+	@>> tmp_script.sh echo '                "WP_ADMIN_PASS" "WP_ADMIN_MAIL" \'
+	@>> tmp_script.sh echo '                "WP_USER" "WP_PASS" "WP_MAIL")'
+	@>> tmp_script.sh echo ''
+	@>> tmp_script.sh echo 'touch srcs/.env'
+	@>> tmp_script.sh echo 'for i in "$${arr[@]}"'
+	@>> tmp_script.sh echo 'do'
+	@>> tmp_script.sh echo '   echo -e "\033[0;34mEnter $$i:\033[0m"'
+	@>> tmp_script.sh echo '   read var'
+	@>> tmp_script.sh echo '   echo "$$i=$$var" >> srcs/.env'
+	@>> tmp_script.sh echo 'done'
+
 
 .PHONY: all clean fclean re hardre
 
